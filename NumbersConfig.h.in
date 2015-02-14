@@ -1,0 +1,3 @@
+// the configured options and settings for Tutorial
+#define Numbers_VERSION_MAJOR @Numbers_VERSION_MAJOR@
+#define Numbers_VERSION_MINOR @Numbers_VERSION_MINOR@

@@ -7,6 +7,21 @@ int doubleIt(int n) {
     return n*2;
 }
 
+bool isPrime(unsigned int n) {
+    if (n <= 1) {
+        return false;
+    }
+    
+    int start = sqrt(n);
+    start = start % 2 == 0 ? start - 1 : start;
+    for (int i=start; i > 2; i-=2) {
+        if (n % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
 int primeNumbersSlow(int numbers[], int size) {
     int current = 0;
     
@@ -35,7 +50,8 @@ int primeNumbers(int numbers[], int size) {
     
     for (int i=3; current < size; i += 2) {
         bool prime = true;
-        
+
+            
         int start = sqrt(i);
         start = start % 2 == 0 ? start - 1 : start;
         for (int j=start; j > 2; j-=2) {
@@ -44,6 +60,18 @@ int primeNumbers(int numbers[], int size) {
                 break;
             }
         }
+        
+        
+        /*
+        int max = sqrt(i);
+        for (int j=0; numbers[j] < max; j++) {
+            if (i % numbers[j] == 0) {
+                prime = false;
+                break;
+            }
+        }
+        */
+        
         if (prime) {
             numbers[current] = i;
             current++;

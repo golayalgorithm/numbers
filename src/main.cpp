@@ -22,7 +22,7 @@ using namespace std;
 int main(int argc, char **argv) {
 
     
-    int n = 1000;
+    int n = 10000;
     
     int numbers[n];
     
@@ -30,12 +30,50 @@ int main(int argc, char **argv) {
     
     BEGIN_TIME;
     primeNumbers(numbers,n);
+    //for (int i=0; i<n; i++) {
+    //    cout << numbers[i] << " ";
+    //}
+    //cout << endl;
     END_TIME;
+    
+        cout << "checking array..." << endl;
+    bool success = true;
+    BEGIN_TIME;
+    for (int i=0; i<n; i++) {
+        if (!isPrime(numbers[i])) {
+            success = false;
+            break;
+        }
+    }
+    if (success) {
+        cout << "success" << endl;
+    } else {
+        cout << "fail" << endl;
+    }
+    END_TIME;
+    
     
     cout << "slow algorithm" << endl;
     BEGIN_TIME;
     primeNumbersSlow(numbers,n);
     END_TIME;
+    
+    cout << "checking array..." << endl;
+    success = true;
+    BEGIN_TIME;
+    for (int i=0; i<n; i++) {
+        if (!isPrime(numbers[i])) {
+            success = false;
+            break;
+        }
+    }
+    if (success) {
+        cout << "success" << endl;
+    } else {
+        cout << "fail" << endl;
+    }
+    END_TIME;
+
     
     return 0;
 }

@@ -22,7 +22,7 @@ using namespace std;
 int main(int argc, char **argv) {
     BEGIN_TIME;
     
-    int n = 1000000;
+    int n = 0;
     
     int numbers[n];
     

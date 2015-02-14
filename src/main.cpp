@@ -26,12 +26,15 @@ int main(int argc, char **argv) {
     
     int numbers[n];
     
+    cout << "fast algorithm" << endl;
+    
     BEGIN_TIME;
-    prime_numbers(numbers,n);
-    for (int i=0; i<n; i++) {
-        cout << numbers[i] << " ";
-    }
-    cout << endl;
+    primeNumbers(numbers,n);
+    END_TIME;
+    
+    cout << "slow algorithm" << endl;
+    BEGIN_TIME;
+    primeNumbersSlow(numbers,n);
     END_TIME;
     
     return 0;

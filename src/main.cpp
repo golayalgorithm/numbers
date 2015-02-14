@@ -20,19 +20,19 @@ using namespace std;
 
 
 int main(int argc, char **argv) {
-    BEGIN_TIME;
+
     
-    int n = 0;
+    int n = 1000;
     
     int numbers[n];
     
+    BEGIN_TIME;
     prime_numbers(numbers,n);
-    
     for (int i=0; i<n; i++) {
         cout << numbers[i] << " ";
     }
     cout << endl;
-    
     END_TIME;
+    
     return 0;
 }

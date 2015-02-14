@@ -1,7 +1,7 @@
 #include <iostream>
 #include <sys/time.h>
 
-#include "numbers.h"
+#include "numbers.hpp"
 
 using namespace std;
 
@@ -18,62 +18,34 @@ using namespace std;
 	cout << "elapsed time: " << elapsedTime << " ms." << endl;\
 }
 
+void printArray(int numbers[], int size);
 
 int main(int argc, char **argv) {
 
     
     int n = 10000;
     
+    int printing = 10;
+    int steps = n/printing;
+    
+    
     int numbers[n];
     
-    cout << "fast algorithm" << endl;
     
     BEGIN_TIME;
     primeNumbers(numbers,n);
-    //for (int i=0; i<n; i++) {
-    //    cout << numbers[i] << " ";
-    //}
-    //cout << endl;
-    END_TIME;
-    
-        cout << "checking array..." << endl;
-    bool success = true;
-    BEGIN_TIME;
-    for (int i=0; i<n; i++) {
-        if (!isPrime(numbers[i])) {
-            success = false;
-            break;
-        }
-    }
-    if (success) {
-        cout << "success" << endl;
-    } else {
-        cout << "fail" << endl;
-    }
-    END_TIME;
-    
-    
-    cout << "slow algorithm" << endl;
-    BEGIN_TIME;
-    primeNumbersSlow(numbers,n);
-    END_TIME;
-    
-    cout << "checking array..." << endl;
-    success = true;
-    BEGIN_TIME;
-    for (int i=0; i<n; i++) {
-        if (!isPrime(numbers[i])) {
-            success = false;
-            break;
-        }
-    }
-    if (success) {
-        cout << "success" << endl;
-    } else {
-        cout << "fail" << endl;
-    }
     END_TIME;
 
-    
+    for (int i=1; i<=n; i += steps) {
+        cout << ordinal(i) << " prime number: " << numbers[i-1] << endl;
+    }
+       
     return 0;
+}
+
+void printArray(int numbers[], int size) {
+    for (int i=0; i<size; i++) {
+        cout << numbers[i] << " ";
+    }
+    cout << endl;
 }
